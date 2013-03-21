@@ -1,0 +1,69 @@
+message "Este [InstallFest](http://installfest.railsbridge.org) es una serie de
+instrucciones paso apaso de como instalar Ruby, Rails, y otras importantes
+heramientas en Linux, Mac o Windows. Originalmente desarrollado por [Railsbridge
+Workshops](http://railsbridge.org), que es un proyecto de documentacion
+soportado por la comuinidad de open-source. Si querés contribuir, hacé click en
+[[git]](https://github.com/rubylit/docs) el link que esta en la esquina superior
+derecha de cuaqluier página y subí tus cambios en GitHub."
+
+step "Preparación para el Install Fest" do
+  message <<-MARKDOWN
+
+
+## Debés traer:
+
+* **Tu laptop.** Tenes que tener una conexion de wifi y cualquier explorador
+  andando.
+  * Si podes elegir entre Linux, Mac o Windows, el orden de preferencia es Linux
+    o Mac, Windows.
+* **Clave de electricidad de la laptop. Sí te estoy mirando a vos ¬¬**
+* Si ya tenes cuenta de Heroku o GitHub, Asegurate de saber su usuario y
+  contraseña.
+
+## Tambien será de ayuda traer lo siguiente:
+
+* Cable de extension
+* Power strip
+* Cámara
+* Refrigerios
+
+  MARKDOWN
+end
+
+step "¡No entrar en Pánico!" do
+  message <<-MARKDOWN
+
+Incluso si estas trabado, por favor, ve sigue hasta el final de las
+instrucciones y baja todas las cosas que serán necesarias. El ancho de banda
+será un premio durente el workshop, así que ayudara'inmensamente tener todo
+bajado y listo en tu computadora.
+
+Hay un montón de pasos, y las instrucciones pueden parecer escritras en una
+lengua extranjera (NDT: están en inglés), pero **a no entrar en pánico** para
+el final del workshop, vas a saber todo lo necesario y como usarlo.
+
+  MARKDOWN
+end
+
+step "Read This Overview" do
+  message <<-MARKDOWN
+
+Vas a estar instalando estas herramientas::
+
+* Ruby
+* Rails
+* Git
+* Heroku
+* KomodoEdit (o algún otro editor)
+* Varias gemas utiles "ruby gems", incluyendo...
+  * bundler
+  * sqlite
+
+Tambien vas a crear una cuenta de Heroku, una aplicacion de hosting.
+
+Si ya tenés una cuenta, asegurate de saber tu usuario y contraseña
+
+  MARKDOWN
+end
+
+next_step "choose_your_operating_system"
