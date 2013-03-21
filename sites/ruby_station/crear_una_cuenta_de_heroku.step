@@ -1,0 +1,56 @@
+step "Visitá la página de Heroku" do
+  url "http://heroku.com"
+end
+
+step "Creá una cuenta" do
+  message "Hacé click en el gran botón **Sign Up** (Está por el medio de la página)"
+  message "Ingresá tu dirección de email."
+  important "Usa la misma dirección de email para las cuentas de github, heroku y ssh."
+end
+
+step "Activá tu cuenta" do
+
+  message "Heroku te mandará un email de activación. Abrelo y has click en el link de activación. Te llevará al sitio de Heroku. Ingresá y confirma tu contraseña. Click en Save."
+
+end
+
+step "Instalar la gema de heroku" do
+
+  option "Si estás usando rvm (en OS X o Linux)" do
+    console "rvm @global exec gem install heroku"
+  end
+
+  option "De otro modo (en Windows)" do
+    console "gem install heroku"
+  end
+
+  h1 "Ignora este Warning"
+  important "Cuanto veas este mensaje, no te asustes. Todo está bien."
+  pre <<MESSAGE
+!    The `heroku` gem has been deprecated and replaced with the Heroku Toolbelt.
+!    Download and install from: https://toolbelt.heroku.com
+!    For API access, see: https://github.com/heroku/heroku.rb
+MESSAGE
+
+  verify do
+    console "heroku version"
+    result "2.26.7 or higher"
+  end
+end
+
+step "Create an SSH key" do
+  option "en OS X o Linux" do 
+    link "create_an_ssh_key"
+  end
+  option "En Windows" do
+    message "RailsInstaller created a key for you. Go on to the next step!"
+  end
+end
+
+step "Incluí tu clave de SSH en la cuenta de Heroku" do
+  console "heroku keys:add"
+  
+  message "Presioná enter para aceptar la clave por defecto"
+end
+
+next_step "crear_y_deployar_una_apliacion_de_rails"

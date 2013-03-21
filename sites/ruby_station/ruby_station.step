@@ -35,7 +35,7 @@ step "¡No entrar en Pánico!" do
 
 Incluso si estas trabado, por favor, ve sigue hasta el final de las
 instrucciones y baja todas las cosas que serán necesarias. El ancho de banda
-será un premio durente el workshop, así que ayudara'inmensamente tener todo
+será un premio durente el workshop, así que ayudará inmensamente tener todo
 bajado y listo en tu computadora.
 
 Hay un montón de pasos, y las instrucciones pueden parecer escritras en una
@@ -66,4 +66,4 @@ Si ya tenés una cuenta, asegurate de saber tu usuario y contraseña
   MARKDOWN
 end
 
-next_step "choose_your_operating_system"
+next_step "elije_tu_sistema_operativo"

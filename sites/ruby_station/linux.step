@@ -1,0 +1,7 @@
+div do
+message <<-MARKDOWN
+## Hace click acá si estás usando [Ubuntu Linux](ubuntu)
+
+Si estas usando otras distribuciones de linux, pedí por ayuda ahora!
+  MARKDOWN
+end

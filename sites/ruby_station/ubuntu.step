@@ -1,0 +1,89 @@
+message <<-MARKDOWN
+Vas a necesitar acceso de root para completar estas instrucciones (El primer
+usuario creado tiene esto por defecto).
+MARKDOWN
+
+step "Instalá los paquetes y bibliotecas" do
+  message <<-MARKDOWN
+Abri una terminal (ctrl + t). La vamos a estar usando mucho así que a lo mejor, la
+quieras "lockear" o tenerla a mano de alguna forma
+MARKDOWN
+
+  apts = %w{
+    autoconf
+    automake
+    bison
+    build-essential
+    curl
+	git-core
+	libapr1
+	libaprutil1
+	libc6-dev
+	libltdl-dev
+    libreadline6
+    libreadline6-dev
+    libsqlite3-0
+    libsqlite3-dev
+    libssl-dev
+    libtool
+    libxml2-dev
+    libxslt-dev
+    libxslt1-dev
+    libyaml-dev
+    ncurses-dev
+    openssl
+    sqlite3
+    zlib1g
+    zlib1g-dev
+  }
+
+  console "sudo apt-get install #{apts.join(' ')}"
+
+end
+
+step "Instalar git" do
+  console "sudo apt-get install git"
+
+  message "Si aparece algún error, no debería haber ninguno, probá instalar `git-core` primero"
+end
+
+step "Configure Git" do
+  link_without_toc "configure_git"
+end
+
+step "Instalar RVM" do
+  important do
+    message "Si estás usando Ubuntu 12.04 o la última version de Mint, asegurate de tener la opcion 'Run command as login shell' marcada en la pestaña 'Title and Command' en Profile Preferences. Despues de cambiar esto, vas a tener que reiniciar la consola para que los cambios tengan efecto."
+    img src: 'railsbridge_ubuntu12-checkbox.png', alt: "Ubuntu 12.04 terminal settings"
+  end
+  link "instalar_rvm_y_ruby"
+  message "Reiniciá la terminal antes de continuar."
+end
+
+step "Instalar Rails" do
+  message "Abrí la terminal nuevamente y ejecuta el siguiente comando para instalar rails."
+
+  console "gem install rails"
+end
+
+step "Instalar Heroku" do
+  console "gem install heroku"
+  tip "Esto solo instala el comando `heroku` de forma local. Todavía vas a necesitar registrarte en Heroku más adelante."
+end
+
+step "KomodoEdit" do
+  message <<-MARKDOWN
+
+Si no tenés un editor de código todavía, las opciones son muchas, acá podes
+instalar KomodoEdit. Disponible para [32-bit](http://downloads.activestate.com/Komodo/releases/7.0.2/Komodo-Edit-7.0.2-9923-linux-x86.tar.gz)
+and [64-bit](http://downloads.activestate.com/Komodo/releases/7.0.2/Komodo-Edit-7.0.2-9923-linux-x86_64.tar.gz)
+
+Check <http://downloads.activestate.com/Komodo/releases/> para la última versión.
+MARKDOWN
+
+  tip "¿Cuántos bits?" do
+    message %q{Si no estás seguro, lo más probable es 32-bit. En la consola ascribí `uname -i` y mira. Si la salida contiene "x86" significa 32-bit, y "x86_64", 64-bit.}
+  end
+end
+
+next_step "crear_una_cuenta_de_heroku"

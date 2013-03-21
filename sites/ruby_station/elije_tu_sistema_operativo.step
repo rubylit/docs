@@ -1,0 +1,11 @@
+div do
+message <<-MARKDOWN
+
+## Hace click acá si estás usando [PC con Linux](linux)
+
+## Hace click acá si estás usando [Macintosh](macintosh)
+
+## Hace click acá si estás usando [PC con Windows](windows)
+
+  MARKDOWN
+end
