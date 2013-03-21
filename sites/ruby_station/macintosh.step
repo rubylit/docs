@@ -1,0 +1,51 @@
+div do
+message <<-MARKDOWN
+  MARKDOWN
+end
+
+step "Learn your Mac OS X Version" do
+  message <<-MARKDOWN
+
+* Click on the Apple icon in the top left of your screen.
+* Select "About this Mac"
+* In the window that comes up, under the title "Mac OS X" there will be a version number.
+  * If it starts with 10.8, you have **Mountain Lion**.
+  * If it starts with 10.7, you have **Lion**.
+  * If it starts with 10.6, you have **Snow Leopard**.
+  * If it starts with 10.5, you have **Leopard**.
+  * If it starts with 10.4, you have **Tiger**.
+  * If it starts with 10.3, you have **Panther**.
+
+* Write down the one you have and close the "About this Mac" window.
+
+Below is an example.
+
+![OS X Snow Leopard](MacOSXSnowLeopard.png)
+
+  MARKDOWN
+end
+
+step "Choose your instructions" do
+  
+  option "Mountain Lion/Lion/Snow Leopard" do
+    option "RailsInstaller" do
+      message "RailsInstaller is an easy way to get up and running with Ruby and Rails on OSX. Try it first."
+      link "osx_railsinstaller"
+    end
+    option "Manually" do
+      message "If something went wrong with RailsInstaller, fall back to these instructions."
+      link "osx_lion"
+    end
+  end
+
+  option "Panther" do
+    link "osx_panther"
+  end
+
+  option "Tiger, or Leopard" do
+    important "Panther and Tiger are **very** old and you should seriously consider upgrading, or buying a new computer!"
+    link "osx_panther"
+    message "Follow the Panther instructions but be prepared for some things to be difficult."
+  end
+end
+

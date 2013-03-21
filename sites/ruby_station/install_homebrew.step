@@ -1,0 +1,16 @@
+
+console %q{ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"}
+
+important "If that doesn't work, visit <https://github.com/mxcl/homebrew/wiki/installation> and follow the instructions there."
+
+verify do
+  console "brew -v"
+  result "0.9"
+end
+
+tip "Homebrew uses `sudo` to prepare your `/usr/local` directory. 'sudo' stands for 'super user do' and it's a way to get your computer to do anything you ask it to do. It is the subject of a famous cartoon:
+
+![sudo make me a sandwich](http://imgs.xkcd.com/comics/sandwich.png)
+
+$USER is a variable that contains your username. You can also run the command **whoami** in your terminal and it'll output your username."
+
